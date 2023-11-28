@@ -1,0 +1,19 @@
+//Experiment 7: To make a Bode Plot.
+//Name: Harsh Pandit
+//Roll Number: H036
+//Date: 07/03/2022
+//Exp_07_H036_07/03/2022
+clc
+clear
+num=poly([300 100],"s","coeff")
+//numerator of G(s)
+den=poly([0 5 6 1],"s","coeff")
+//denominator of G(s)
+s1=syslin('c',num,den)
+disp(s1)
+subplot(2,2,1)
+bode(s1,0.01,100)
+//BODE plot from 0.01 to 100 Hz
+show_margins(s1,'bode')
+[gm,fr]=g_margin(s1)
+[pm,fr]=p_margin(s1)

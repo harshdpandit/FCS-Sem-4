@@ -1,0 +1,15 @@
+//Experiment 6: To find steady state error for given Transfer Function.
+//Name: Harsh Pandit
+//Roll Number: H036
+//Date: 07/03/2022
+//Exp_06_H036_07/03/2022
+clc 
+close 
+clear 
+num = poly([240 120],"s","coeff"); // Defines the numerator of G(s) 
+den = poly([12 7 1],"s","coeff"); // Defines the denominator of G(s) 
+G= num/den ; // Defines G(s) 
+disp(G)
+Ess =1/(1+horner(G,0)); // Evaluates Steady state error for step input 
+mprintf('The steady state error is')
+disp(Ess)
